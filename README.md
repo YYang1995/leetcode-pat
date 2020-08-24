@@ -1,2 +1,2 @@
-# pat_practice
-my practice of pat 
+pat乙级的练习
+简单的题目就直接上解法了，复杂点的会有思路的说明
