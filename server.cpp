@@ -16,13 +16,14 @@ int main()
     sockAddr.sin_family=PF_INET;
     sockAddr.sin_addr.s_addr=inet_addr("127.0.0.1");
     sockAddr.sin_port=htons(1234);
-    bind(servSock,(SOCKADDR*)&sockAddr,sizeof(SOCKADDR));
+    bind(servSock,(SOCKADDR*)&sockAddr,sizeof(SOCKADDR)); //将套接字描述符和服务器套接字地址联系起来
     
-    listen(servSock,20);
+    listen(servSock,20);  //将serverSock从主动套接字转变为监听套接字
 
     SOCKADDR clintAddr;
     int nSize=sizeof(SOCKADDR);
-    SOCKET clntSock=accept(servSock,(SOCKADDR*)&clintAddr,&nSize);  //阻塞
+    //在clintAddr中填写客户端的套接字地址，并返回已连接描述符
+    SOCKET clntSock=accept(servSock,(SOCKADDR*)&clintAddr,&nSize);  
 
     char recv_buffer[1024];
     char send_buffer[1024];

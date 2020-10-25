@@ -15,7 +15,7 @@ int main()
     sockaddr_in sockAddr;
     memset(&sockAddr,0,sizeof(sockAddr));
     sockAddr.sin_family=PF_INET;
-    sockAddr.sin_addr.s_addr=inet_addr("127.0.0.1");
+    sockAddr.sin_addr.s_addr=inet_addr("127.0.0.1"); //inet_addr点分十进制字符串转换为网络字节序整数
     sockAddr.sin_port=htons(1234);
     connect(sock,(SOCKADDR*)&sockAddr,sizeof(SOCKADDR));
 
